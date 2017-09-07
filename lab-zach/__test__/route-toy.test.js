@@ -16,7 +16,7 @@ describe('Testing toy routes', function() {
             .type('application/json')
             .send({
               name: 'barney',
-              desc: 'purple dino'
+              desc: 'purple dino',
             })
             .then(res => {
               this.mockToy = res.body;
@@ -102,7 +102,7 @@ describe('Testing toy routes', function() {
         });
       });
       describe('Invalid Requests', () => {
-        
+
       });
     });
   });
