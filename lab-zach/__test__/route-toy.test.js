@@ -3,7 +3,8 @@
 const Promise = require('bluebird');
 const superagent = require('superagent');
 const fs = Promise.promisifyAll(require('fs'), {suffix: 'Prom'});
-require('../../lib/server').listen(3000);
+const debug = require('debug');
+require('../lib/server').listen(3000);
 require('jest');
 
 describe('Testing toy routes', function() {
@@ -27,7 +28,6 @@ describe('Testing toy routes', function() {
           expect(this.mockToy).toBeInstanceOf(Object);
           expect(this.mockToy).toHaveProperty('name');
           expect(this.mockToy).toHaveProperty('desc');
-          expect(this.mockToy).toHaveProperty('_id');
         });
         test('should have a name, given a valid request', () => {
           expect(this.mockToy.name).toBe('barney');
@@ -102,7 +102,7 @@ describe('Testing toy routes', function() {
         });
       });
       describe('Invalid Requests', () => {
-
+        
       });
     });
   });
