@@ -8,4 +8,4 @@ const Toy = mongoose.Schema({
   desc: {type: String, required: true}
 }, {timestamps: true});
 
-module.exports = mongoose.model('goose', Toy);
+module.exports = mongoose.model('toy', Toy);

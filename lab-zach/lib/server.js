@@ -20,10 +20,10 @@ mongoose.connect(MONGODB_URI, {useMongoClient: true});
 const bodyParser = require('body-parser').json();
 
 // this sets the cors headers to express when mounted?
-const cors = require('../cors');
+const cors = require('./cors');
 
 //makes error objects by status code?
-const errorMiddleware = require('../error-middleware');
+const errorMiddleware = require('./error-middleware');
 
 //routes (endpoints)
 // router is called at the end to mount the endpoint?
@@ -35,3 +35,7 @@ app.use(cors);
 app.use(router);
 //always put testing last, so it catched all the modules before it
 app.use(errorMiddleware);
+
+app.all('/*', (req, res) => res.sendStatus(404));
+
+module.exports = app;
